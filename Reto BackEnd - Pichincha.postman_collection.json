@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "d7903064-f232-4535-bde4-e451a4aeeb3e",
+		"name": "Reto BackEnd - Pichincha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20572832"
+	},
+	"item": [
+		{
+			"name": "1. OAuth2 Token - Auth0",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"client_id\": \"gx49PcTV2ruE5iLLSOWN2ENDuvLFMH93\",\r\n    \"client_secret\": \"ol9eF7akfJ29SyLDLD1AyM6gyVzliPBI1SbvFLk_EwFCGAp6BzTt03t35-69XofW\",\r\n    \"audience\": \"https://securityclients/api\",\r\n    \"grant_type\": \"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-y0x7fjf1znvk2prw.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"dev-y0x7fjf1znvk2prw",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Gorest - Obtener Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Experience API - Realizar tipo de cambio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNyWE16S2EzN1llUmJWYjdQSFRrciJ9.eyJpc3MiOiJodHRwczovL2Rldi15MHg3ZmpmMXpudmsycHJ3LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJneDQ5UGNUVjJydUU1aUxMU09XTjJFTkR1dkxGTUg5M0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9zZWN1cml0eWNsaWVudHMvYXBpIiwiaWF0IjoxNzMyODE3ODAyLCJleHAiOjE3MzI5MDQyMDIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyIsImF6cCI6Imd4NDlQY1RWMnJ1RTVpTExTT1dOMkVORHV2TEZNSDkzIn0.SSApSkktlDYtLNfmO-MVMmSnuG3nb5ROcRz6AOxVqS3Ye_98IV9zOI47w57RzzpXcRZmEf0Pz0PHrNfDmX68uROvopROCHTZAcFNY3yaICItnkzvE6FeNNXPAH0eD19FFSR_liIrJ4Zbg_5nVJbdbZfnYlaZ7VLGfDapwYTFVpdj9uppAoRVAv0JOCTJW5qG8o8ZQTNt0K_HozWePA3DyFplDaXAQ_CF-WTRkxD7LvTeaLOo8ESDg_vD0cj_7qF6m3l0fvf7QcF2Ccc7KW7SNIuvLhB_5qBDqQO3zghEPZeakwnbHSdRnKO9y17efXWYiqBFKIHAYpZD-KdKx_TBAg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromCurrency\": \"USD\",\r\n    \"toCurrency\": \"EUR\",\r\n    \"amount\": 100.00,\r\n    \"userId\": 7550859\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/experience/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"experience",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support API - Obtener Tipo de Cambio Moneda a Moneda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/exchange-rates/USD/EUR",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"exchange-rates",
+						"USD",
+						"EUR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support API - Mostrar Todos los Cambios de Moneda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/exchange-rates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"exchange-rates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support API - Guardar Tipo de Cambio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fromCurrency\": \"GBP\",\r\n    \"toCurrency\": \"USD\",\r\n    \"rate\": 1.38\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/exchange-rates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"exchange-rates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support API - Registrar Exchange Audit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"John Doe\",\r\n  \"initialAmount\": 100.50,\r\n  \"finalAmount\": 105.75,\r\n  \"exchangeRate\": 1.05\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/exchange-audit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"exchange-audit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Support API -  Obtener Exchange Audit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/exchange-audit/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"exchange-audit",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

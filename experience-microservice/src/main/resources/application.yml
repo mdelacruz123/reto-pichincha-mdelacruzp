@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    allow-bean-definition-overriding: 'true'
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-y0x7fjf1znvk2prw.us.auth0.com/
+          jwk-set-uri: https://dev-y0x7fjf1znvk2prw.us.auth0.com/.well-known/jwks.json
+
+auth0:
+  token-url: "https://dev-y0x7fjf1znvk2prw.us.auth0.com/oauth/token"
+  client-id: "gx49PcTV2ruE5iLLSOWN2ENDuvLFMH93"
+  client-secret: "ol9eF7akfJ29SyLDLD1AyM6gyVzliPBI1SbvFLk_EwFCGAp6BzTt03t35-69XofW"
+  audience: "https://securityclients/api"
+
+api:
+  soporte-url: "http://localhost:8081"
+  gorest-url: "https://gorest.co.in/public/v2"
